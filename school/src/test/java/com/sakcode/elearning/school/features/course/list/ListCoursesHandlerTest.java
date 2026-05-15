@@ -49,7 +49,10 @@ class ListCoursesHandlerTest {
   @Test
   void shouldFilterCoursesByPriceRange() {
     ListCoursesRequest request =
-        ListCoursesRequest.builder().minPrice(new BigDecimal("10")).maxPrice(new BigDecimal("100")).build();
+        ListCoursesRequest.builder()
+            .minPrice(new BigDecimal("10"))
+            .maxPrice(new BigDecimal("100"))
+            .build();
 
     Course course1 = new Course("Java", "Java desc", new BigDecimal("49.99"), "Dr. A");
     course1.setId(1L);

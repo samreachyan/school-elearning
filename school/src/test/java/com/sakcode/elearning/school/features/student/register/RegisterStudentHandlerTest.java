@@ -41,7 +41,8 @@ class RegisterStudentHandlerTest {
     when(studentRepository.existsByEmail("john@example.com")).thenReturn(false);
     when(passwordEncoder.encode("password123")).thenReturn("encoded-password");
 
-    Student savedStudent = new Student("john@example.com", "John Doe", "encoded-password", PlanType.FREE);
+    Student savedStudent =
+        new Student("john@example.com", "John Doe", "encoded-password", PlanType.FREE);
     savedStudent.setId(1L);
     when(studentRepository.save(any(Student.class))).thenReturn(savedStudent);
 

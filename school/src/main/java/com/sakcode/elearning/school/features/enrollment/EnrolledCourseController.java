@@ -36,7 +36,9 @@ public class EnrolledCourseController {
                       .courseTitle(course != null ? course.getTitle() : "Unknown")
                       .courseDescription(course != null ? course.getDescription() : "")
                       .instructor(course != null ? course.getInstructor() : "")
+                      .price(course != null ? course.getPrice() : null)
                       .progressPercentage(enrollment.getProgressPercentage())
+                      .paymentStatus(enrollment.getPaymentStatus())
                       .enrollmentDate(enrollment.getCreatedAt())
                       .build();
                 })

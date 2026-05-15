@@ -4,9 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 import jakarta.servlet.http.HttpServletRequest;
-import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Map;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -87,8 +85,7 @@ class GlobalExceptionHandlerTest {
     FieldError fieldError2 = new FieldError("object", "password", "Password is required");
     when(bindingResult.getFieldErrors()).thenReturn(List.of(fieldError1, fieldError2));
 
-    MethodArgumentNotValidException ex =
-        new MethodArgumentNotValidException(null, bindingResult);
+    MethodArgumentNotValidException ex = new MethodArgumentNotValidException(null, bindingResult);
 
     ResponseEntity<ErrorResponse> response = handler.handleValidationException(ex, request);
 

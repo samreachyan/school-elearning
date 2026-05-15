@@ -102,8 +102,7 @@ class ProgressControllerTest {
 
     when(mediator.send(request)).thenReturn(expectedResponse);
 
-    ResponseEntity<GenerateCertificateResponse> response =
-        controller.generateCertificate(request);
+    ResponseEntity<GenerateCertificateResponse> response = controller.generateCertificate(request);
 
     assertEquals(200, response.getStatusCode().value());
     GenerateCertificateResponse body = response.getBody();

@@ -30,7 +30,8 @@ class GenerateCertificateHandlerTest {
 
   @BeforeEach
   void setUp() {
-    handler = new GenerateCertificateHandler(enrollmentRepository, courseRepository, studentRepository);
+    handler =
+        new GenerateCertificateHandler(enrollmentRepository, courseRepository, studentRepository);
   }
 
   @Test

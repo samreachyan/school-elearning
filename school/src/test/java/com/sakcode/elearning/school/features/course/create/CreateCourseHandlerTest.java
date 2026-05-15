@@ -36,7 +36,8 @@ class CreateCourseHandlerTest {
             .instructor("Dr. Smith")
             .build();
 
-    Course savedCourse = new Course("Java Basics", "Learn Java", new BigDecimal("49.99"), "Dr. Smith");
+    Course savedCourse =
+        new Course("Java Basics", "Learn Java", new BigDecimal("49.99"), "Dr. Smith");
     savedCourse.setId(1L);
     savedCourse.setCreatedAt(LocalDateTime.now());
     when(courseRepository.save(any(Course.class))).thenReturn(savedCourse);

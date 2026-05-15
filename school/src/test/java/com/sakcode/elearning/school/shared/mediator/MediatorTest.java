@@ -35,8 +35,7 @@ class MediatorTest {
     Mediator mediator = new Mediator(applicationContext);
     NonExistentRequest request = new NonExistentRequest();
 
-    RuntimeException exception =
-        assertThrows(RuntimeException.class, () -> mediator.send(request));
+    RuntimeException exception = assertThrows(RuntimeException.class, () -> mediator.send(request));
     assertTrue(exception.getMessage().contains("Handler not found"));
   }
 

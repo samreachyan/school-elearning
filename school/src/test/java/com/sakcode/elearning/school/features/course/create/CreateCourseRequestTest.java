@@ -92,7 +92,8 @@ class CreateCourseRequestTest {
     var violations = validator.validate(request);
     assertFalse(violations.isEmpty());
     assertTrue(
-        violations.stream().anyMatch(v -> v.getMessage().contains("Price must be greater than zero")));
+        violations.stream()
+            .anyMatch(v -> v.getMessage().contains("Price must be greater than zero")));
   }
 
   @Test

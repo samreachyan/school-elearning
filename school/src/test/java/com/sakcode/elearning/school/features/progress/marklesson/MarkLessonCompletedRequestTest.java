@@ -45,8 +45,7 @@ class MarkLessonCompletedRequestTest {
 
     var violations = validator.validate(request);
     assertFalse(violations.isEmpty());
-    assertTrue(
-        violations.stream().anyMatch(v -> v.getMessage().contains("Lesson ID is required")));
+    assertTrue(violations.stream().anyMatch(v -> v.getMessage().contains("Lesson ID is required")));
   }
 
   @Test

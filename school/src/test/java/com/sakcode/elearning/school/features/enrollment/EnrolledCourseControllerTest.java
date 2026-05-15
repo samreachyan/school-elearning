@@ -5,6 +5,7 @@ import static org.mockito.Mockito.*;
 
 import com.sakcode.elearning.school.features.course.Course;
 import com.sakcode.elearning.school.features.course.CourseRepository;
+import com.sakcode.elearning.school.features.payment.PaymentStatus;
 import com.sakcode.elearning.school.shared.security.StudentPrincipal;
 import java.math.BigDecimal;
 import java.util.List;
@@ -55,7 +56,9 @@ class EnrolledCourseControllerTest {
     assertEquals("Java", body.get(0).getCourseTitle());
     assertEquals("Java desc", body.get(0).getCourseDescription());
     assertEquals("Dr. Smith", body.get(0).getInstructor());
+    assertEquals(0, new BigDecimal("49.99").compareTo(body.get(0).getPrice()));
     assertEquals(0, new BigDecimal("50.00").compareTo(body.get(0).getProgressPercentage()));
+    assertEquals(PaymentStatus.PENDING, body.get(0).getPaymentStatus());
     assertNotNull(body.get(0).getEnrollmentDate());
   }
 
@@ -93,5 +96,6 @@ class EnrolledCourseControllerTest {
     assertEquals("Unknown", body.get(0).getCourseTitle());
     assertEquals("", body.get(0).getCourseDescription());
     assertEquals("", body.get(0).getInstructor());
+    assertNull(body.get(0).getPrice());
   }
 }

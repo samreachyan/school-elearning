@@ -28,8 +28,7 @@ class GetStudentProfileHandlerTest {
 
   @Test
   void shouldGetStudentProfileSuccessfully() {
-    GetStudentProfileRequest request =
-        GetStudentProfileRequest.builder().studentId(1L).build();
+    GetStudentProfileRequest request = GetStudentProfileRequest.builder().studentId(1L).build();
 
     Student student = new Student("john@example.com", "John Doe", "password", PlanType.PREMIUM);
     student.setId(1L);
@@ -48,8 +47,7 @@ class GetStudentProfileHandlerTest {
 
   @Test
   void shouldThrowExceptionWhenStudentNotFound() {
-    GetStudentProfileRequest request =
-        GetStudentProfileRequest.builder().studentId(999L).build();
+    GetStudentProfileRequest request = GetStudentProfileRequest.builder().studentId(999L).build();
 
     when(studentRepository.findById(999L)).thenReturn(Optional.empty());
 

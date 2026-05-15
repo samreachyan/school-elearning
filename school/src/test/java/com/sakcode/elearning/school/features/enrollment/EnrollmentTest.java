@@ -2,6 +2,7 @@ package com.sakcode.elearning.school.features.enrollment;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import com.sakcode.elearning.school.features.payment.PaymentStatus;
 import java.math.BigDecimal;
 import org.junit.jupiter.api.Test;
 
@@ -14,6 +15,7 @@ class EnrollmentTest {
     assertEquals(1L, enrollment.getStudentId());
     assertEquals(10L, enrollment.getCourseId());
     assertEquals(0, BigDecimal.ZERO.compareTo(enrollment.getProgressPercentage()));
+    assertEquals(PaymentStatus.PENDING, enrollment.getPaymentStatus());
     assertNotNull(enrollment.getCreatedAt());
   }
 
@@ -23,6 +25,7 @@ class EnrollmentTest {
     assertNull(enrollment.getStudentId());
     assertNull(enrollment.getCourseId());
     assertNull(enrollment.getProgressPercentage());
+    assertNull(enrollment.getPaymentStatus());
   }
 
   @Test
@@ -31,5 +34,13 @@ class EnrollmentTest {
     enrollment.setProgressPercentage(new BigDecimal("50.00"));
 
     assertEquals(0, new BigDecimal("50.00").compareTo(enrollment.getProgressPercentage()));
+  }
+
+  @Test
+  void shouldSetAndGetPaymentStatus() {
+    Enrollment enrollment = new Enrollment(1L, 10L);
+    enrollment.setPaymentStatus(PaymentStatus.COMPLETED);
+
+    assertEquals(PaymentStatus.COMPLETED, enrollment.getPaymentStatus());
   }
 }

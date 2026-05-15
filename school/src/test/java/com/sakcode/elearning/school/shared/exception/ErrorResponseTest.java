@@ -75,8 +75,7 @@ class ErrorResponseTest {
   @Test
   void shouldUseAllArgsConstructor() {
     LocalDateTime now = LocalDateTime.now();
-    ErrorResponse response =
-        new ErrorResponse(500, "Error", "msg", "CODE", now, "/path", null);
+    ErrorResponse response = new ErrorResponse(500, "Error", "msg", "CODE", now, "/path", null);
 
     assertEquals(500, response.getStatus());
     assertEquals("Error", response.getError());

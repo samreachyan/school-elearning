@@ -1,4 +1,4 @@
-package com.sakcode.elearning.school.features.course.enroll;
+package com.sakcode.elearning.school.features.payment.process;
 
 import com.sakcode.elearning.school.features.payment.PaymentStatus;
 import java.math.BigDecimal;
@@ -12,13 +12,14 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class EnrollCourseResponse {
+public class ProcessPaymentResponse {
 
+  private Long paymentId;
   private Long enrollmentId;
-  private Long studentId;
-  private Long courseId;
-  private LocalDateTime enrollmentDate;
-  private PaymentStatus paymentStatus;
   private BigDecimal amount;
+  private String paymentMethod;
+  private PaymentStatus status;
+  private String transactionId;
+  private LocalDateTime paidAt;
   private String message;
 }

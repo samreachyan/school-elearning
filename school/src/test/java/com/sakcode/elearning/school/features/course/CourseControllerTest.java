@@ -72,8 +72,7 @@ class CourseControllerTest {
 
     when(mediator.send(any())).thenReturn(expectedResponse);
 
-    ResponseEntity<ListCoursesResponse> response =
-        controller.listCourses(null, null);
+    ResponseEntity<ListCoursesResponse> response = controller.listCourses(null, null);
 
     assertEquals(HttpStatus.OK, response.getStatusCode());
     assertNotNull(response.getBody());

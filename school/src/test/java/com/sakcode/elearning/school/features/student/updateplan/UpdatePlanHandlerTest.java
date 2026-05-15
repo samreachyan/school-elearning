@@ -37,7 +37,8 @@ class UpdatePlanHandlerTest {
 
     when(studentRepository.findById(1L)).thenReturn(Optional.of(student));
 
-    Student updatedStudent = new Student("john@example.com", "John Doe", "password", PlanType.PREMIUM);
+    Student updatedStudent =
+        new Student("john@example.com", "John Doe", "password", PlanType.PREMIUM);
     updatedStudent.setId(1L);
     when(studentRepository.save(any(Student.class))).thenReturn(updatedStudent);
 

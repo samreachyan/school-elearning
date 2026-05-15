@@ -41,8 +41,7 @@ class GetCourseProgressHandlerTest {
 
   @Test
   void shouldGetCourseProgressSuccessfully() {
-    GetCourseProgressRequest request =
-        GetCourseProgressRequest.builder().enrollmentId(1L).build();
+    GetCourseProgressRequest request = GetCourseProgressRequest.builder().enrollmentId(1L).build();
 
     Enrollment enrollment = new Enrollment(1L, 100L);
     enrollment.setId(1L);
@@ -107,8 +106,7 @@ class GetCourseProgressHandlerTest {
 
   @Test
   void shouldThrowExceptionWhenCourseNotFound() {
-    GetCourseProgressRequest request =
-        GetCourseProgressRequest.builder().enrollmentId(1L).build();
+    GetCourseProgressRequest request = GetCourseProgressRequest.builder().enrollmentId(1L).build();
 
     Enrollment enrollment = new Enrollment(1L, 999L);
     enrollment.setId(1L);

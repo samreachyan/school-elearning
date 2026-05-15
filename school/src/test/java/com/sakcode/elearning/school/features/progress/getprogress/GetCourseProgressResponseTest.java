@@ -11,7 +11,12 @@ class GetCourseProgressResponseTest {
   @Test
   void shouldCreateResponseUsingBuilder() {
     LessonProgressDto dto =
-        LessonProgressDto.builder().lessonId(1L).title("Lesson 1").orderNumber(1).completed(true).build();
+        LessonProgressDto.builder()
+            .lessonId(1L)
+            .title("Lesson 1")
+            .orderNumber(1)
+            .completed(true)
+            .build();
 
     GetCourseProgressResponse response =
         GetCourseProgressResponse.builder()
@@ -51,7 +56,8 @@ class GetCourseProgressResponseTest {
   @Test
   void shouldUseAllArgsConstructor() {
     GetCourseProgressResponse response =
-        new GetCourseProgressResponse(1L, 1L, 100L, "Java", new BigDecimal("50.00"), 2, 1, List.of());
+        new GetCourseProgressResponse(
+            1L, 1L, 100L, "Java", new BigDecimal("50.00"), 2, 1, List.of());
 
     assertEquals(1L, response.getEnrollmentId());
     assertEquals("Java", response.getCourseTitle());

@@ -46,22 +46,41 @@ class DataLoaderTest {
     when(studentRepository.count()).thenReturn(0L);
     when(passwordEncoder.encode("password123")).thenReturn("encoded-password");
 
-    Student savedStudent1 = new Student("john@example.com", "John Doe", "encoded-password", PlanType.FREE);
+    Student savedStudent1 =
+        new Student("john@example.com", "John Doe", "encoded-password", PlanType.FREE);
     savedStudent1.setId(1L);
-    Student savedStudent2 = new Student("jane@example.com", "Jane Smith", "encoded-password", PlanType.PREMIUM);
+    Student savedStudent2 =
+        new Student("jane@example.com", "Jane Smith", "encoded-password", PlanType.PREMIUM);
     savedStudent2.setId(2L);
 
     when(studentRepository.save(any(Student.class)))
         .thenReturn(savedStudent1)
         .thenReturn(savedStudent2);
 
-    Course savedCourse1 = new Course("Java Programming Fundamentals", "Learn Java", new BigDecimal("49.99"), "Dr. Alan Turing");
+    Course savedCourse1 =
+        new Course(
+            "Java Programming Fundamentals",
+            "Learn Java",
+            new BigDecimal("49.99"),
+            "Dr. Alan Turing");
     savedCourse1.setId(1L);
-    Course savedCourse2 = new Course("Spring Boot Masterclass", "Build apps", new BigDecimal("79.99"), "Prof. Dennis Ritchie");
+    Course savedCourse2 =
+        new Course(
+            "Spring Boot Masterclass",
+            "Build apps",
+            new BigDecimal("79.99"),
+            "Prof. Dennis Ritchie");
     savedCourse2.setId(2L);
-    Course savedCourse3 = new Course("Data Structures & Algorithms", "Master DSA", new BigDecimal("59.99"), "Dr. Grace Hopper");
+    Course savedCourse3 =
+        new Course(
+            "Data Structures & Algorithms",
+            "Master DSA",
+            new BigDecimal("59.99"),
+            "Dr. Grace Hopper");
     savedCourse3.setId(3L);
-    Course savedCourse4 = new Course("Introduction to Python", "Python course", new BigDecimal("0.00"), "Guido van Rossum");
+    Course savedCourse4 =
+        new Course(
+            "Introduction to Python", "Python course", new BigDecimal("0.00"), "Guido van Rossum");
     savedCourse4.setId(4L);
 
     when(courseRepository.save(any(Course.class)))
@@ -70,7 +89,8 @@ class DataLoaderTest {
         .thenReturn(savedCourse3)
         .thenReturn(savedCourse4);
 
-    when(lessonRepository.save(any(Lesson.class))).thenAnswer(invocation -> invocation.getArgument(0));
+    when(lessonRepository.save(any(Lesson.class)))
+        .thenAnswer(invocation -> invocation.getArgument(0));
 
     dataLoader.run();
 

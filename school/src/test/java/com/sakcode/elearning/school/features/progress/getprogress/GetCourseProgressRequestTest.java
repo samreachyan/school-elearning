@@ -20,8 +20,7 @@ class GetCourseProgressRequestTest {
 
   @Test
   void shouldPassValidationWhenEnrollmentIdIsValid() {
-    GetCourseProgressRequest request =
-        GetCourseProgressRequest.builder().enrollmentId(1L).build();
+    GetCourseProgressRequest request = GetCourseProgressRequest.builder().enrollmentId(1L).build();
 
     var violations = validator.validate(request);
     assertTrue(violations.isEmpty());

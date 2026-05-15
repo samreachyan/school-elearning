@@ -35,7 +35,8 @@ class LoginHandlerTest {
     LoginRequest request =
         LoginRequest.builder().email("john@example.com").password("password123").build();
 
-    Student student = new Student("john@example.com", "John Doe", "encoded-password", PlanType.FREE);
+    Student student =
+        new Student("john@example.com", "John Doe", "encoded-password", PlanType.FREE);
     student.setId(1L);
 
     when(studentRepository.findByEmail("john@example.com")).thenReturn(Optional.of(student));
@@ -71,7 +72,8 @@ class LoginHandlerTest {
     LoginRequest request =
         LoginRequest.builder().email("john@example.com").password("wrong-password").build();
 
-    Student student = new Student("john@example.com", "John Doe", "encoded-password", PlanType.FREE);
+    Student student =
+        new Student("john@example.com", "John Doe", "encoded-password", PlanType.FREE);
     student.setId(1L);
 
     when(studentRepository.findByEmail("john@example.com")).thenReturn(Optional.of(student));
